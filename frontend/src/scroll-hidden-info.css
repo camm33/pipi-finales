@@ -1,0 +1,31 @@
+/* 
+RESUMEN: OCULTAR BARRAS DE SCROLL
+=====================================
+
+Se aplicaron los siguientes estilos para ocultar las barras de scroll
+pero mantener la funcionalidad de desplazamiento:
+
+1. CHAT PRINCIPAL (.mensajes-container):
+   - scrollbar-width: none; (Firefox)
+   - -ms-overflow-style: none; (IE 10+)
+   - ::-webkit-scrollbar { display: none; } (Chrome, Safari, Edge)
+
+2. LISTA DE CONVERSACIONES (.conversaciones-list):
+   - Mismos estilos para ocultar scrollbar
+
+3. MODAL DE USUARIOS (.usuarios-list):
+   - Mismos estilos para ocultar scrollbar
+
+COMPATIBILIDAD:
+- ✅ Chrome, Safari, Edge (WebKit)
+- ✅ Firefox
+- ✅ Internet Explorer 10+
+- ✅ Dispositivos móviles
+
+FUNCIONALIDAD MANTENIDA:
+- ✅ Scroll con rueda del mouse
+- ✅ Scroll táctil en móviles
+- ✅ Auto-scroll programático
+- ✅ Scroll con teclado (flechas, Page Up/Down)
+
+*/

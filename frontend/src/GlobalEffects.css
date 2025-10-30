@@ -1,0 +1,122 @@
+/* Efectos globales y transiciones suaves */
+
+/* Animación de fade-in para elementos */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Animación de shimmer para elementos de carga */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Botones con efecto glassmorphism */
+.glass-button {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  padding: 12px 24px;
+  color: #6b4a2b;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(107, 74, 43, 0.1);
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(107, 74, 43, 0.2);
+}
+
+/* Cards con efecto de profundidad */
+.depth-card {
+  background: linear-gradient(145deg, #ffffff 0%, #f8f5f0 100%);
+  border-radius: 20px;
+  box-shadow: 
+    20px 20px 60px rgba(107, 74, 43, 0.1),
+    -20px -20px 60px rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(154, 119, 56, 0.1);
+  transition: all 0.3s ease;
+}
+
+.depth-card:hover {
+  box-shadow: 
+    25px 25px 80px rgba(107, 74, 43, 0.15),
+    -25px -25px 80px rgba(255, 255, 255, 0.9);
+  transform: translateY(-5px);
+}
+
+/* Texto con gradiente elegante */
+.gradient-text {
+  background: linear-gradient(135deg, #6b4a2b 0%, #9a7738 50%, #b2935b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* Separadores elegantes */
+.elegant-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(154, 119, 56, 0.3) 20%, rgba(154, 119, 56, 0.6) 50%, rgba(154, 119, 56, 0.3) 80%, transparent 100%);
+  margin: 30px 0;
+  border: none;
+}
+
+/* Efectos de hover para iconos */
+.icon-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-hover:hover {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 5px 15px rgba(154, 119, 56, 0.3));
+}
+
+/* Smooth scrolling mejorado */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(107, 74, 43, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #b2935b 0%, #9a7738 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #c4a56b 0%, #b08a43 100%);
+}

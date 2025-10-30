@@ -1,0 +1,10 @@
+Flask
+Flask-Mail
+Flask-MySQLdb
+Flask-Cors
+Flask-Dance
+bcrypt
+reportlab
+PyMySQL
+pymongo
+python-dotenv
