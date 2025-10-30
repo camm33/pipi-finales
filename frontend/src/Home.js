@@ -26,14 +26,13 @@ export default function Home() {
   // Datos del carrusel con imágenes placeholder
   const carouselData = [
     {
-      image: "/home1.jpg",
+      image: "/home1.jpeg",
       title: "DOUBLE P",
       subtitle: "Moda Sostenible",
       description: "Descubre una nueva forma de vestir con estilo y responsabilidad. Nuestra colección exclusiva te ofrece las últimas tendencias en moda sostenible."
     },
     {
-      image: "https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
-      title: "DOUBLE P",
+      image: "/home2.jpeg",
       subtitle: "Estilo sin Límites",
       description: "Más tallas, más opciones, más de ti. Celebramos la diversidad y la autenticidad con prendas diseñadas para cada cuerpo y personalidad única."
     }
@@ -341,12 +340,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Texto original (ahora más pequeño) */}
-      <div className="home-texto">
-        <p>Moda Sostenible</p>
-        <h1>Sin límites, sin barreras: más tallas, más opciones, más de ti.</h1>
-      </div>
-
       {/* 🔎 Filtros desplegables */}
       <div className="filtros-dropdown-wrapper">
         <div 
@@ -501,6 +494,17 @@ export default function Home() {
           ))}
         </div>
       </div>
+      
+      {/* Botón flotante de chat */}
+      <button 
+        className="chat-flotante" 
+        onClick={() => navigate('/chat')}
+        title="Abrir Chat"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+        </svg>
+      </button>
     </div>
   );
 }

@@ -8,7 +8,7 @@
   background-color: #faf9f7;
   box-sizing: border-box;
   margin: 0;
-  padding: 80px 0 0 0; /* Agregar padding-top para el header fijo */
+  padding: 80px 8px 0 8px; /* Agregar padding lateral mínimo de 8px */
 }
 
 /* Hero Section con Carrusel */
@@ -20,7 +20,7 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  padding: 20px 20px 0 20px;
+  padding: 10px 10px 0 10px;
   margin-top: -80px; /* Compensar el padding del container */
   margin-bottom: 0; /* Asegurar que no hay margen inferior */
 }
@@ -434,11 +434,11 @@
 /* Contenedor del catálogo */
 .catalogo-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px; /* Aumentar ancho máximo para aprovechar mejor el espacio */
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px 20px 40px 20px; /* Reducir padding superior de 40px a 10px */
+  padding: 10px 2px 40px 2px; /* Reducir aún más el padding lateral */
   background-color: #faf9f7;
 }
 
@@ -1025,29 +1025,36 @@
   }
 }
 
-/* Grid de productos */
+/* Grid de productos - 5 columnas */
 .catalogo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px; /* Gap ajustado para 5 columnas */
   width: 100%;
   margin-top: 0; /* Eliminar cualquier margen superior */
+  padding: 8px; /* Padding reducido */
 }
 
-/* Tarjeta producto */
+/* Tarjeta producto - Estable y rectangular */
 .producto-card {
   position: relative;
   background: #ffffff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 2px;
+  overflow: hidden; /* Cambiar a hidden para evitar movimiento */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  border: 1px solid #f0f0f0;
+  border: none;
+  max-width: 100%;
+  padding: 10px 10px 25px 10px; /* Padding más balanceado */
+  height: 280px; /* Altura fija para evitar movimiento */
+  display: flex;
+  flex-direction: column;
 }
 
 .producto-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-8px) scale(1.02); /* Solo elevación, sin rotación */
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.15);
+  z-index: 10;
 }
 
 /* Badge/Etiqueta del producto */
@@ -1067,62 +1074,77 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Imagen del producto */
+/* Imagen del producto - Estable */
 .producto-card img {
   width: 100%;
-  height: 260px;
+  height: 140px; /* Altura fija más pequeña */
   object-fit: cover;
-  margin-bottom: 0;
+  margin-bottom: 8px;
   transition: transform 0.3s ease;
+  border-radius: 1px;
+  flex-shrink: 0; /* No permitir que se encoja */
 }
 
 .producto-card:hover img {
-  transform: scale(1.02);
+  transform: scale(1.01); /* Efecto más sutil */
 }
 
-/* Información del producto */
+/* Información del producto - Estable para 5 columnas */
 .producto-card h4 {
-  font-size: 16px;
-  font-weight: 600;
-  color: #2c2c2c;
-  margin: 0 0 8px 0;
-  padding: 20px 20px 0 20px;
-  line-height: 1.4;
-  text-align: left;
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+  padding: 0 4px;
+  line-height: 1.3;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  height: 32px; /* Altura fija para evitar movimiento */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Evitar desbordamiento */
+  text-overflow: ellipsis;
 }
 
 .producto-card p {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 600;
   color: #c5a882;
-  margin: 0 0 20px 0;
-  padding: 0 20px;
-  text-align: left;
+  margin: 0;
+  padding: 0 4px 4px 4px;
+  text-align: center;
+  height: 20px; /* Altura fija para el precio */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Contenedor de botones */
+/* Contenedor de botones - Fijo en la parte inferior */
 .botones-flex {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 20px 20px 20px;
-  gap: 10px;
+  justify-content: center;
+  padding: 4px;
+  gap: 4px;
+  margin-top: auto; /* Empujar hacia abajo */
 }
 
-/* Botón Ver más */
+/* Botón Ver más - Compacto */
 .lista-deseos-vermas {
   background-color: #c5a882;
   color: white;
   border: none;
-  border-radius: 8px;
-  padding: 12px 24px;
+  border-radius: 3px; /* Bordes más rectos */
+  padding: 5px 10px;
   cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 10px;
+  font-weight: 500;
   transition: all 0.3s ease;
   flex: 1;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
+  font-family: 'Courier New', monospace; /* Fuente tipo máquina de escribir */
 }
 
 .lista-deseos-vermas:hover {
@@ -1130,18 +1152,18 @@
   transform: translateY(-1px);
 }
 
-/* Botón de lista de deseos (corazón) */
+/* Botón de lista de deseos (corazón) - Compacto */
 .lista-deseos-corazon {
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 16px;
   color: #c5a882;
   cursor: pointer;
   transition: all 0.3s ease;
-  padding: 8px;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  padding: 3px;
+  border-radius: 2px; /* Bordes más rectos */
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1149,8 +1171,26 @@
 
 .lista-deseos-corazon:hover {
   color: #b8956d;
-  background-color: rgba(197, 168, 130, 0.1);
-  transform: scale(1.1);
+  background-color: rgba(197, 168, 130, 0.15);
+  transform: scale(1.05); /* Efecto más sutil */
+}
+
+/* Media query para tablets grandes */
+@media (max-width: 1200px) {
+  .catalogo-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 6px;
+  }
+}
+
+/* Media query para tablets */
+@media (max-width: 1024px) {
+  .catalogo-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; /* Ajustar para 3 columnas */
+    padding: 6px;
+  }
 }
 
 /* Responsive Design */
@@ -1179,8 +1219,9 @@
   }
   
   .catalogo-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; /* Ajustar para tablets */
+    padding: 6px;
   }
   
   .filtros-container {
@@ -1233,15 +1274,17 @@
   }
   
   .catalogo-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px; /* Gap para móviles */
+    padding: 4px;
   }
   
   .home-container {
-    padding: 0;
+    padding: 0 5px; /* Padding mínimo en móviles */
   }
   
   .catalogo-container {
-    padding: 20px 15px;
+    padding: 20px 3px; /* Reducir aún más el padding en móviles */
   }
   
   .filtros-container {
@@ -1315,5 +1358,75 @@
   .social-icon {
     width: 30px;
     height: 30px;
+  }
+}
+
+/* Botón flotante de chat */
+.chat-flotante {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #c5a882 0%, #b8956d 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(197, 168, 130, 0.4);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  border: none;
+  text-decoration: none;
+}
+
+.chat-flotante:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 25px rgba(197, 168, 130, 0.6);
+  background: linear-gradient(135deg, #b8956d 0%, #a0804e 100%);
+}
+
+.chat-flotante:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.chat-flotante svg {
+  width: 28px;
+  height: 28px;
+  fill: white;
+  transition: transform 0.3s ease;
+}
+
+.chat-flotante:hover svg {
+  transform: scale(1.1);
+}
+
+/* Responsive para el botón de chat */
+@media (max-width: 768px) {
+  .chat-flotante {
+    width: 55px;
+    height: 55px;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .chat-flotante svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chat-flotante {
+    width: 50px;
+    height: 50px;
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .chat-flotante svg {
+    width: 22px;
+    height: 22px;
   }
 }

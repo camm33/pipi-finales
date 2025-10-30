@@ -10,7 +10,7 @@ const Header = ({ setIsLoggedIn }) => {
 
   // Array con las rutas de navegación
   const navItems = [
-    { path: "/catalogo", label: "Menú" },
+    { path: "/catalogo", label: "Inicio" },
     { path: "/agregar", label: "Publicar" },
     { path: "/lista_deseos", label: "Deseos" },
     { path: "/configuracion", label: "Configuración" }

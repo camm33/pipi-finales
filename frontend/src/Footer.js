@@ -8,20 +8,9 @@ function Footer() {
         {/* Sección izquierda - Newsletter y redes sociales */}
         <div className="footer-left">
           <div className="footer-logo">
-            <div className="logo-icons">
-              <span className="logo-dot">●</span>
-              <span className="logo-cross">✕</span>
-              <span className="logo-square">■</span>
-            </div>
-            <h3>Double Π Project</h3>
-          </div>
-          
-          <div className="newsletter">
-            <input 
-              type="email" 
-              placeholder="Ingresa tu email para recibir noticias y ofertas"
-              className="newsletter-input"
-            />
+            <h3>Double Π</h3>
+            <p>&copy; {new Date().getFullYear()}</p>
+            
           </div>
           
           <div className="social-connect">
@@ -81,31 +70,6 @@ function Footer() {
               <li><a href="/reportes">Reportes</a></li>
               <li><a href="/terminos">Términos de Uso</a></li>
             </ul>
-          </div>
-        </div>
-
-        {/* Sección derecha - App promocional */}
-        <div className="footer-right">
-          <div className="app-promotion">
-            <div className="app-mockup">
-              <div className="phone-frame">
-                <div className="phone-screen">
-                  <div className="app-header">
-                    <span className="app-dot"></span>
-                    <span className="app-dot"></span>
-                    <span className="app-dot"></span>
-                  </div>
-                  <div className="app-content">
-                    <h5>Double Π</h5>
-                    <p>Moda Sostenible</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="app-text">
-              <h4>Usa nuestra plataforma desde cualquier lugar</h4>
-              <p>Comparte prendas de moda & obtén recomendaciones. Descúbrelo ahora.</p>
-            </div>
           </div>
         </div>
       </div>
