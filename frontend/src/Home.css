@@ -30,7 +30,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, #b8904a 0%, #9A7738 100%);
   border: none;
   border-radius: 50%;
   width: 50px;
@@ -42,11 +42,13 @@
   z-index: 4;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(184, 144, 74, 0.3);
 }
 
 .carousel-arrow:hover {
-  background: rgba(0, 0, 0, 0.7);
+  background: linear-gradient(135deg, #9A7738 0%, #8b6d2f 100%);
   transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(184, 144, 74, 0.4);
 }
 
 .carousel-arrow-left {
@@ -1109,10 +1111,10 @@
   gap: 10px;
 }
 
-/* Botón Ver más */
-.lista-deseos-vermas {
-  background-color: #c5a882;
-  color: white;
+/* Botón Ver más - Mayor especificidad */
+.producto-card .botones-flex .lista-deseos-vermas {
+  background-color: #b8904a !important;
+  color: white !important;
   border: none;
   border-radius: 8px;
   padding: 12px 24px;
@@ -1123,34 +1125,37 @@
   flex: 1;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(184, 144, 74, 0.2);
 }
 
-.lista-deseos-vermas:hover {
-  background-color: #b8956d;
-  transform: translateY(-1px);
+.producto-card .botones-flex .lista-deseos-vermas:hover {
+  background-color: #9A7738 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(184, 144, 74, 0.3);
 }
 
-/* Botón de lista de deseos (corazón) */
-.lista-deseos-corazon {
-  background: none;
+/* Botón de lista de deseos (corazón) - Mayor especificidad */
+.producto-card .botones-flex .lista-deseos-corazon {
+  background: #1A1A1A !important;
   border: none;
   font-size: 24px;
-  color: #c5a882;
+  color: white !important;
   cursor: pointer;
   transition: all 0.3s ease;
   padding: 8px;
-  border-radius: 50%;
+  border-radius: 8px;
   width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 2px 8px rgba(26, 26, 26, 0.2);
 }
 
-.lista-deseos-corazon:hover {
-  color: #b8956d;
-  background-color: rgba(197, 168, 130, 0.1);
-  transform: scale(1.1);
+.producto-card .botones-flex .lista-deseos-corazon:hover {
+  background: #2d2d2d !important;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(26, 26, 26, 0.3);
 }
 
 /* Responsive Design */
