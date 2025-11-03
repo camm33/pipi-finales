@@ -1,0 +1,551 @@
+/* ==========================================
+   VER PRENDA - DISEÑO MINIMALISTA DOUBLE P
+   ========================================== */
+
+.ver-prenda-container {
+  max-width: 1200px;
+  margin: 120px auto 40px auto;
+  padding: 30px;
+  background: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: calc(100vh - 200px);
+}
+
+.ver-prenda-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 2px 20px rgba(108, 117, 125, 0.08);
+  border: 1px solid #e9ecef;
+  position: relative;
+}
+
+.ver-prenda-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #6c757d 0%, #b8904a 50%, #6c757d 100%);
+  border-radius: 12px 12px 0 0;
+}
+
+/* ==========================================
+   GALERÍA DE IMÁGENES
+   ========================================== */
+
+.prenda-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.main-image-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+}
+
+.main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.main-image:hover {
+  transform: scale(1.02);
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #dee2e6;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  color: #6c757d;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.nav-btn:hover {
+  background: #b8904a;
+  color: white;
+  border-color: #b8904a;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+  left: 15px;
+}
+
+.next-btn {
+  right: 15px;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.thumbnail {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 2px solid #dee2e6;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+.thumbnail:hover {
+  opacity: 1;
+  border-color: #b8904a;
+  transform: scale(1.05);
+}
+
+.thumbnail.active {
+  opacity: 1;
+  border-color: #b8904a;
+  box-shadow: 0 0 0 2px rgba(184, 144, 74, 0.3);
+}
+
+/* ==========================================
+   INFORMACIÓN DE LA PRENDA
+   ========================================== */
+
+.prenda-info {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.prenda-header {
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+}
+
+.prenda-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+}
+
+.prenda-price {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.price-tag {
+  background: #1A1A1A;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(26, 26, 26, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.exchange-tag {
+  background: linear-gradient(135deg, #17a2b8, #138496);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(23, 162, 184, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ==========================================
+   INFORMACIÓN DEL USUARIO
+   ========================================== */
+
+.user-info-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  margin-bottom: 25px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex: 1;
+}
+
+.user-avatar {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #dee2e6;
+  transition: border-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.user-avatar:hover {
+  border-color: #b8904a;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+  align-items: flex-start;
+}
+
+.user-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.user-rating-container {
+  background: #1A1A1A;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(26, 26, 26, 0.4);
+  min-width: 140px;
+  height: 32px;
+  box-sizing: border-box;
+  gap: 6px;
+}
+
+.user-rating {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 0;
+}
+
+.rating-star {
+  color: #ffc107;
+  font-size: 14px;
+  line-height: 1;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  display: inline-block;
+}
+
+.rating-score {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.btn-contact {
+  background: #1A1A1A;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 10px rgba(26, 26, 26, 0.3);
+  text-decoration: none;
+}
+
+.btn-contact:hover {
+  background: #2d2d2d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(26, 26, 26, 0.4);
+}
+
+/* ==========================================
+   DETALLES DE LA PRENDA
+   ========================================== */
+
+.prenda-details {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.detail-section h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.description {
+  color: #495057;
+  line-height: 1.6;
+  font-size: 14px;
+  margin: 0;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border-left: 4px solid #b8904a;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 15px;
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.detail-item:hover {
+  border-color: #b8904a;
+  box-shadow: 0 2px 8px rgba(184, 144, 74, 0.1);
+}
+
+.detail-label {
+  font-weight: 600;
+  color: #6c757d;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-value {
+  font-weight: 500;
+  color: #2c3e50;
+  font-size: 14px;
+}
+
+/* ==========================================
+   BOTONES DE ACCIÓN
+   ========================================== */
+
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.action-btn {
+  flex: 1;
+  padding: 15px 25px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  background: #b8904a;
+  color: white;
+  border-color: #b8904a;
+}
+
+.btn-primary:hover {
+  background: #a17c42;
+  border-color: #a17c42;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(184, 144, 74, 0.3);
+}
+
+.btn-secondary {
+  background: white;
+  color: #6c757d;
+  border-color: #dee2e6;
+}
+
+.btn-secondary:hover {
+  background: #6c757d;
+  color: white;
+  border-color: #6c757d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
+}
+
+/* ==========================================
+   ESTADOS DE CARGA Y ERROR
+   ========================================== */
+
+.loading-state,
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 20px rgba(108, 117, 125, 0.08);
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e9ecef;
+  border-top: 3px solid #b8904a;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.error-state h3 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.error-state p {
+  color: #6c757d;
+  margin-bottom: 20px;
+}
+
+.btn-back {
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  background: #5a6268;
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 768px) {
+  .ver-prenda-container {
+    margin: 100px auto 20px auto;
+    padding: 20px;
+  }
+
+  .ver-prenda-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 30px;
+  }
+
+  .main-image-container {
+    height: 400px;
+  }
+
+  .prenda-title {
+    font-size: 1.5rem;
+  }
+
+  .user-info-section {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .thumbnails {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .ver-prenda-container {
+    padding: 15px;
+  }
+
+  .ver-prenda-content {
+    padding: 20px;
+  }
+
+  .main-image-container {
+    height: 300px;
+  }
+
+  .nav-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+
+  .thumbnail {
+    width: 60px;
+    height: 60px;
+  }
+}

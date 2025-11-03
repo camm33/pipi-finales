@@ -1,139 +1,440 @@
+/* ==========================================
+   DISEÑO MINIMALISTA DOUBLE P
+   Colores: Gris #6c757d, Dorado #b8904a, Blanco #ffffff, Gris Claro #f8f9fa
+   ========================================== */
+
 .editar-container {
-  max-width: 950px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #fafafa;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 120px auto 40px auto;
+  padding: 30px;
+  background: #f8f9fa;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: calc(100vh - 200px);
 }
+
+/* ==========================================
+   PANEL PRINCIPAL MINIMALISTA
+   ========================================== */
 
 .editar-panel {
   display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
+  gap: 40px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 2px 20px rgba(108, 117, 125, 0.08);
+  border: 1px solid #e9ecef;
+  position: relative;
 }
+
+.editar-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #6c757d 0%, #b8904a 50%, #6c757d 100%);
+  border-radius: 12px 12px 0 0;
+}
+
+/* ==========================================
+   SECCIÓN DE FOTOS MINIMALISTA
+   ========================================== */
 
 .editar-fotos {
-  flex: 1 1 280px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  align-content: flex-start;
+  flex: 1 1 400px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  min-height: 400px;
 }
 
-.foto-preview {
-  position: relative;
-  width: 150px;
-  height: 150px;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #e0e0e0;
-  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+.foto-upload-box {
+  background: #ffffff;
+  border: 2px dashed #dee2e6;
+  border-radius: 8px;
+  height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.foto-preview:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+.foto-upload-box:hover {
+  border-color: #b8904a;
+  background: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(184, 144, 74, 0.12);
 }
 
-.foto-preview img {
+.uploaded-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 12px;
-}
-
-.foto-placeholder {
-  font-size: 0.85rem;
-  color: #888;
-  text-align: center;
-  padding: 10px;
-}
-
-.foto-preview input[type="file"] {
-  position: absolute;
-  bottom: 6px;
-  left: 6px;
-  opacity: 0.9;
-  width: calc(100% - 12px);
-  cursor: pointer;
   border-radius: 6px;
-  background-color: rgba(255, 255, 255, 0.7);
-  padding: 4px;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.foto-preview input[type="file"]:hover {
-  background-color: rgba(255, 255, 255, 0.9);
+.foto-upload-box:hover .uploaded-image {
+  transform: scale(1.02);
 }
 
-.editar-formulario {
-  flex: 2 1 450px;
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(108, 117, 125, 0.9);
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  background: #fff;
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: white;
+  border-radius: 6px;
+}
+
+.foto-upload-box:hover .image-overlay {
+  opacity: 1;
+}
+
+.overlay-buttons {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-action-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.image-action-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.change-btn:hover {
+  background: #b8904a;
+  border-color: #b8904a;
+}
+
+.remove-btn:hover {
+  background: #dc3545;
+  border-color: #dc3545;
+}
+
+.plus-icon, .remove-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: currentColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.empty-upload-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #6c757d;
+  font-weight: 500;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.upload-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #6c757d;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  height: 100%;
+}
+
+.upload-btn:hover {
+  color: #b8904a;
+  transform: scale(1.05);
+}
+
+.empty-upload-box .plus-icon,
+.upload-btn .plus-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #6c757d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.upload-btn:hover .plus-icon {
+  background: #b8904a;
+  transform: scale(1.1);
+}
+
+.upload-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #6c757d;
+}
+
+.file-input {
+  display: none !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: -1;
+}
+
+/* ==========================================
+   FORMULARIO MINIMALISTA
+   ========================================== */
+
+.editar-formulario {
+  flex: 1 1 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  border-left: 4px solid #6c757d;
 }
 
 .editar-formulario h2 {
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   text-align: center;
-  color: #4b3f2f;
-  font-weight: 700;
-  font-size: 1.5rem;
+  color: #6c757d;
+  font-weight: 600;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.editar-formulario h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background: #b8904a;
+}
+
+/* Inputs minimalistas */
+.editar-formulario label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #6c757d;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .editar-formulario input,
 .editar-formulario textarea,
 .editar-formulario select {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  font-size: 1rem;
-  resize: none;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e9ecef;
+  border-radius: 6px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  color: #495057;
+  font-family: inherit;
 }
 
 .editar-formulario input:focus,
 .editar-formulario textarea:focus,
 .editar-formulario select:focus {
   outline: none;
-  border-color: #b2935b;
-  box-shadow: 0 0 6px rgba(178, 147, 91, 0.5);
+  border-color: #b8904a;
+  box-shadow: 0 0 0 3px rgba(184, 144, 74, 0.1);
+}
+
+.editar-formulario input::placeholder,
+.editar-formulario textarea::placeholder {
+  color: #adb5bd;
+  font-style: italic;
+}
+
+.editar-formulario select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236c757d' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  appearance: none;
+  cursor: pointer;
 }
 
 .editar-formulario textarea {
   min-height: 100px;
+  resize: vertical;
 }
+
+/* ==========================================
+   BOTONES MINIMALISTAS DOUBLE P
+   ========================================== */
 
 .editar-botones {
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-top: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap;
 }
 
 .btn-accion {
-  padding: 14px 32px;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #b2935b, #a17c50);
-  color: white;
-  font-weight: 700;
+  padding: 12px 30px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #6c757d;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  transition: all 0.2s ease;
+  min-width: 140px;
 }
 
 .btn-accion:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(135deg, #a17c50, #b2935b);
+  background: #6c757d;
+  color: white;
+  border-color: #6c757d;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(108, 117, 125, 0.2);
+}
+
+.btn-accion.btn-primary {
+  border-color: #b8904a;
+  color: #b8904a;
+}
+
+.btn-accion.btn-primary:hover {
+  background: #b8904a;
+  color: white;
+  border-color: #b8904a;
+  box-shadow: 0 2px 8px rgba(184, 144, 74, 0.2);
+}
+
+/* ==========================================
+   RESPONSIVE MINIMALISTA
+   ========================================== */
+
+@media (max-width: 768px) {
+  .editar-container {
+    margin: 100px auto 20px auto;
+    padding: 20px;
+  }
+  
+  .editar-panel {
+    flex-direction: column;
+    padding: 30px;
+    gap: 30px;
+  }
+  
+  .editar-fotos {
+    min-height: 250px;
+  }
+  
+  .foto-upload-box {
+    height: 250px;
+  }
+  
+  .editar-formulario {
+    padding: 25px;
+    border-left: none;
+    border-top: 4px solid #6c757d;
+  }
+  
+  .editar-botones {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .btn-accion {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .editar-container {
+    padding: 15px;
+  }
+  
+  .editar-panel {
+    padding: 20px;
+  }
+  
+  .editar-formulario {
+    padding: 20px;
+  }
+  
+  .editar-formulario h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ==========================================
+   ESTADOS DE FOCUS PARA ACCESIBILIDAD
+   ========================================== */
+
+.foto-upload-box:focus-within,
+.editar-formulario input:focus,
+.editar-formulario textarea:focus,
+.editar-formulario select:focus,
+.btn-accion:focus {
+  outline: 2px solid #b8904a;
+  outline-offset: 2px;
 }

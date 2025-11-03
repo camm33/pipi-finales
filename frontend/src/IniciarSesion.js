@@ -96,9 +96,25 @@ function IniciarSesion({ setIsLoggedIn }) {
       const result = await response.json();
 
       if (response.ok && result.success) {
+        // Guardar datos completos del usuario
         localStorage.setItem("id_usuario", result.id_usuario || "");
         localStorage.setItem("username", result.username || username);
-        localStorage.setItem("token", "token_simulado");
+        localStorage.setItem("token", result.token || "authenticated"); // Token real o marcador de autenticación
+        
+        // Objeto completo del usuario
+        const userData = {
+          id: result.id_usuario,
+          username: result.username || username,
+          logged: true,
+          primer_nombre: result.primer_nombre || "",
+          primer_apellido: result.primer_apellido || "",
+          email: result.email || "",
+          foto: result.foto || "",
+          id_rol: result.id_rol || 1
+        };
+        
+        localStorage.setItem("user", JSON.stringify(userData));
+        
         if (result.foto) {
           localStorage.setItem("foto_usuario", result.foto);
         }
@@ -110,7 +126,7 @@ function IniciarSesion({ setIsLoggedIn }) {
         setMensaje("✅ Inicio de sesión exitoso");
 
         setTimeout(() => {
-          navigate("/Catalogo");
+          navigate("/catalogo");
         }, 500);
       } else {
         setMensaje(result.mensaje || "⚠ Token inválido o expirado");

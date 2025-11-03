@@ -7,7 +7,7 @@ const Header = ({ setIsLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [foto, setFoto] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
-
+  
   // Array con las rutas de navegación
   const navItems = [
     { path: "/catalogo", label: "Inicio" },
@@ -181,6 +181,14 @@ const Header = ({ setIsLoggedIn }) => {
                 borderRadius: '50%',
                 objectFit: 'cover',
                 border: '2px solid rgba(255, 255, 255, 0.3)'
+              }}
+              onError={(e) => {
+                console.log("❌ Error cargando foto en header:", e.target.src);
+                console.log("📝 Foto en localStorage:", foto);
+                e.target.src = '/LOGO.png';
+              }}
+              onLoad={(e) => {
+                console.log("✅ Foto del header cargada correctamente:", e.target.src);
               }}
             />
           ) : (

@@ -8,6 +8,7 @@ import Editar from "./editar_perfil";
 import Register from "./register";
 import MiPerfil from "./MiPerfil";
 import DetallePrenda from "./DetallePrenda";
+import VerPrenda from "./VerPrenda";
 import AdminDashboard from "./AdminDashboard";
 import ListaDeDeseos from "./ListaDeDeseos";
 import AppPerfiles from "./perfiles";
@@ -28,7 +29,17 @@ import PublicHeader from "./PublicHeader";
 
 // Rutas privadas
 function PrivateRoute({ isLoggedIn, children }) {
-  return isLoggedIn ? children : <Navigate to="/iniciar" />;
+  console.log("🔒 PrivateRoute - isLoggedIn:", isLoggedIn);
+  console.log("🔒 PrivateRoute - token en localStorage:", localStorage.getItem("token"));
+  console.log("🔒 PrivateRoute - user en localStorage:", localStorage.getItem("user"));
+  
+  if (!isLoggedIn) {
+    console.log("❌ PrivateRoute: Usuario no logueado, redirigiendo a /iniciar");
+    return <Navigate to="/iniciar" />;
+  }
+  
+  console.log("✅ PrivateRoute: Usuario logueado, permitiendo acceso");
+  return children;
 }
 
 // Rutas públicas
@@ -68,10 +79,48 @@ function Layout({ header, children }) {
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  useEffect(() => {
+  // Función para verificar autenticación
+  const checkAuthentication = () => {
     const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token);
+    const user = localStorage.getItem("user");
+    const id_usuario = localStorage.getItem("id_usuario");
+    
+    const isAuthenticated = !!(token || user || id_usuario);
+    
+    console.log("🔍 Verificando autenticación:");
+    console.log("- Token:", token);
+    console.log("- User:", user);
+    console.log("- ID Usuario:", id_usuario);
+    console.log("- isAuthenticated:", isAuthenticated);
+    
+    setIsLoggedIn(isAuthenticated);
+    return isAuthenticated;
+  };
+
+  useEffect(() => {
+    // Verificar autenticación inicial
+    checkAuthentication();
+
+    // Listener para cambios en localStorage (para detectar login/logout)
+    const handleStorageChange = (e) => {
+      if (e.key === 'token' || e.key === 'user' || e.key === 'id_usuario') {
+        console.log("👂 Detectado cambio en localStorage:", e.key, e.newValue);
+        checkAuthentication();
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
   }, []);
+
+  // Función para refrescar el estado de autenticación (puede ser llamada por otros componentes)
+  const refreshAuth = () => {
+    return checkAuthentication();
+  };
 
   return (
     <Router>
@@ -296,6 +345,26 @@ function App() {
                     <GestionarPrenda />
                   </Layout>
                 </PrivateRoute>
+              }
+            />
+
+            <Route
+              path="/ver_prenda/:id"
+              element={
+                <PrivateRoute isLoggedIn={isLoggedIn}>
+                  <Layout header={<Header setIsLoggedIn={setIsLoggedIn} />}>
+                    <VerPrenda />
+                  </Layout>
+                </PrivateRoute>
+              }
+            />
+
+            <Route
+              path="/ver_prenda/:id"
+              element={
+                <Layout header={<Header setIsLoggedIn={setIsLoggedIn} />}>
+                  <DetallePrenda />
+                </Layout>
               }
             />
 

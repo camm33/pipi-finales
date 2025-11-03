@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from './Header';
 import PublicHeader from './PublicHeader';
+import modeloBanner from './modelobanner.jpg';
+import modeloBanner2 from './modelobanner2.jpg';
 import './Home.css';
 
 export default function Home() {
@@ -23,16 +25,17 @@ export default function Home() {
   const [isTextTransitioning, setIsTextTransitioning] = useState(false);
   const [slideDirection, setSlideDirection] = useState('right'); // 'left' o 'right'
 
-  // Datos del carrusel con imágenes placeholder
+  // Datos del carrusel
   const carouselData = [
     {
-      image: "/home1.jpeg",
+      image: modeloBanner,
       title: "DOUBLE P",
       subtitle: "Moda Sostenible",
       description: "Descubre una nueva forma de vestir con estilo y responsabilidad. Nuestra colección exclusiva te ofrece las últimas tendencias en moda sostenible."
     },
     {
-      image: "/home2.jpeg",
+      image: modeloBanner2,
+      title: "DOUBLE P",
       subtitle: "Estilo sin Límites",
       description: "Más tallas, más opciones, más de ti. Celebramos la diversidad y la autenticidad con prendas diseñadas para cada cuerpo y personalidad única."
     }
