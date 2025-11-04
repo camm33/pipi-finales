@@ -1,0 +1,152 @@
+/* ==========================================
+   COMPONENTE BOTÓN PERFIL USUARIO
+   Diseño minimalista con colores Double P
+   ========================================== */
+
+.boton-perfil-container {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-bottom: 18px !important;
+  font-size: 16px !important;
+  padding: 15px !important;
+  background: #fafafa !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  border: 1px solid #e9ecef !important;
+  transition: none !important;
+}
+
+.boton-perfil-container:hover {
+  box-shadow: none !important;
+  border-color: #e9ecef !important;
+  transform: none !important;
+}
+
+/* Texto "Publicado por:" o label personalizado */
+.boton-perfil-label {
+  color: #6c757d !important;
+  font-weight: 600 !important;
+  font-family: "Segoe UI", sans-serif !important;
+  text-transform: none !important;
+  letter-spacing: 0.5px !important;
+  font-size: 16px !important;
+  margin-right: 10px !important;
+}
+
+/* Botón principal */
+.boton-perfil-btn {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: transparent !important;
+  color: #b8904a !important;
+  border: 1px solid #b8904a !important;
+  border-radius: 6px !important;
+  padding: 8px 12px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  font-family: "Segoe UI", sans-serif !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  position: relative !important;
+  overflow: visible !important;
+  box-shadow: none !important;
+}
+
+.boton-perfil-btn::before {
+  display: none !important;
+}
+
+.boton-perfil-btn:hover::before {
+  display: none !important;
+}
+
+.boton-perfil-btn:hover {
+  background: rgba(184, 144, 74, 0.1) !important;
+  color: #9A7738 !important;
+  border-color: #9A7738 !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.boton-perfil-btn:active {
+  background: rgba(184, 144, 74, 0.2) !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Ícono de usuario */
+.boton-perfil-icon {
+  font-size: 16px !important;
+  filter: none !important;
+  transition: none !important;
+}
+
+.boton-perfil-btn:hover .boton-perfil-icon {
+  transform: none !important;
+}
+
+/* Nombre de usuario */
+.boton-perfil-username {
+  font-weight: 500 !important;
+  font-size: 14px !important;
+}
+
+/* ==========================================
+   VARIACIONES DEL COMPONENTE
+   ========================================== */
+
+/* Versión compacta sin contenedor */
+.boton-perfil-container.compact {
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  margin-bottom: 0 !important;
+}
+
+/* Versión solo botón (sin label) */
+.boton-perfil-container.solo-boton {
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  margin-bottom: 0 !important;
+}
+
+/* Versión pequeña */
+.boton-perfil-container.small .boton-perfil-btn {
+  padding: 6px 10px !important;
+  font-size: 12px !important;
+}
+
+.boton-perfil-container.small .boton-perfil-icon {
+  font-size: 14px !important;
+}
+
+.boton-perfil-container.small .boton-perfil-username {
+  font-size: 12px !important;
+}
+
+.boton-perfil-container.small .boton-perfil-label {
+  font-size: 14px !important;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 768px) {
+  .boton-perfil-container {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    padding: 12px !important;
+  }
+  
+  .boton-perfil-label {
+    margin-right: 0 !important;
+    margin-bottom: 5px !important;
+  }
+}

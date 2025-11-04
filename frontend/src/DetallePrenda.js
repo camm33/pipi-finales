@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./DetallePrenda.css";
+import BotonPerfilUsuario from "./components/BotonPerfilUsuario";
 
 function DetallePrenda() {
   const navigate = useNavigate();
@@ -51,16 +52,10 @@ function DetallePrenda() {
           ))}
         </div>
         <div className="detalle-prenda-datos">
-          <div className="detalle-prenda-publicador">
-            <span className="publicado-por-texto">Publicado por:</span>
-            <button
-              onClick={() => navigate(`/perfil/${prenda.id_usuario}`)} // ✅ corregido
-              className="detalle-prenda-publicador-btn"
-              title="Ver perfil de usuario"
-            >
-              <span style={{ fontSize: '18px' }}>👤</span> {prenda.username}
-            </button>
-          </div>
+          <BotonPerfilUsuario 
+            userId={prenda.id_usuario} 
+            username={prenda.username} 
+          />
           <div className="detalle-prenda-label">Nombre</div>
           <div className="detalle-prenda-campo">{prenda.nombre}</div>
           <div className="detalle-prenda-label">Descripción</div>
