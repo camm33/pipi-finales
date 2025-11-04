@@ -1,0 +1,244 @@
+/* Gestión de Usuarios - Estilo Double P */
+.gestion-usuarios-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
+  padding: 20px;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.gestion-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 30px;
+  background: linear-gradient(135deg, #b8904a 0%, #9A7738 100%);
+  border-radius: 16px;
+  color: white;
+  box-shadow: 0 8px 32px rgba(184, 144, 74, 0.3);
+}
+
+.gestion-header h1 {
+  margin: 0 0 10px 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.gestion-header p {
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.filtros-section {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.filtro-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 15px 20px;
+  border: 2px solid #e0d5c7;
+  border-radius: 12px;
+  font-size: 16px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.filtro-input:focus {
+  outline: none;
+  border-color: #b8904a;
+  box-shadow: 0 0 0 4px rgba(184, 144, 74, 0.1);
+}
+
+.usuarios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.usuario-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.usuario-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.usuario-avatar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.usuario-avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #b8904a;
+}
+
+.usuario-info h3 {
+  text-align: center;
+  margin: 0 0 10px 0;
+  font-size: 1.4rem;
+  color: #1A1A1A;
+  font-weight: 600;
+}
+
+.usuario-email {
+  text-align: center;
+  color: #6c757d;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
+
+.usuario-fecha {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 15px;
+}
+
+.usuario-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.usuario-stats span {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.usuario-acciones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.estado-badge {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.estado-badge.activo {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+}
+
+.estado-badge.inactivo {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  color: white;
+}
+
+.btn-toggle {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.85rem;
+}
+
+.btn-activar {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+}
+
+.btn-activar:hover {
+  background: linear-gradient(135deg, #20c997 0%, #28a745 100%);
+  transform: scale(1.05);
+}
+
+.btn-desactivar {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  color: white;
+}
+
+.btn-desactivar:hover {
+  background: linear-gradient(135deg, #c82333 0%, #dc3545 100%);
+  transform: scale(1.05);
+}
+
+.stats-footer {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 50px;
+  padding: 30px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #b8904a;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  font-size: 1.2rem;
+  color: #6c757d;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 50px;
+  color: #6c757d;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .usuarios-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-footer {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .gestion-header h1 {
+    font-size: 2rem;
+  }
+}

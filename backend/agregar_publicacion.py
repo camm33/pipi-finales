@@ -72,8 +72,10 @@ def publicar():
     # fotos
     fotos_guardadas = []
     upload_folder = _get_upload_folder()
+    print(f"🔍 DEBUG: Archivos recibidos: {list(request.files.keys())}")
     for key in ["foto", "foto2", "foto3", "foto4"]:
         file = request.files.get(key)
+        print(f"🔍 DEBUG: {key} = {file}")
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             # make unique to avoid collisions
@@ -81,8 +83,12 @@ def publicar():
             filepath = os.path.join(upload_folder, unique)
             file.save(filepath)
             fotos_guardadas.append(unique)
+            print(f"✅ Foto guardada: {unique}")
         else:
             fotos_guardadas.append(None)
+            print(f"❌ Foto {key} no válida o vacía")
+    
+    print(f"🔍 DEBUG: fotos_guardadas = {fotos_guardadas}")
 
     try:
         crear_publicacion_prenda(

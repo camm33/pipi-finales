@@ -81,72 +81,167 @@
 }
 
 .detalle-prenda-label {
-  font-family: "Libre Baskerville", serif;
-  color: #48392e;
-  font-weight: bold;
-  margin-bottom: 2px;
-  font-size: 0.98rem;
+  font-family: "Segoe UI", sans-serif;
+  color: #6c757d;
+  font-weight: 500;
+  margin-bottom: 6px;
+  font-size: 14px;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 .detalle-prenda-campo {
-  background: #b2935b;
-  border-radius: 8px;
-  padding: 7px 12px;
-  margin-bottom: 10px;
-  color: #222;
-  font-size: 0.98rem;
-  font-family: "Libre Baskerville", serif;
+  background: #fafafa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  color: #1A1A1A;
+  font-size: 15px;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 400;
   width: 100%;
   box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.detalle-prenda-campo:hover {
+  border-color: #b8904a;
 }
 
 .detalle-prenda-publicador {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 18px;
-  font-size: 0.98rem;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-bottom: 18px !important;
+  font-size: 16px !important;
+  padding: 15px !important;
+  background: #fafafa !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  border: 1px solid #e9ecef !important;
+  transition: none !important;
+}
+
+.detalle-prenda-publicador:hover {
+  box-shadow: none !important;
+  border-color: #e9ecef !important;
+  transform: none !important;
+}
+
+.detalle-prenda-publicador span {
+  color: #1A1A1A !important;
+  font-weight: 700 !important;
+  font-family: "League Gothic", sans-serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  font-size: 18px !important;
+  margin-right: 5px !important;
+}
+
+/* Texto específico "Publicado por:" */
+.detalle-prenda-publicador > span:first-child {
+  color: #6c757d !important;
+  font-weight: 600 !important;
+  font-family: "Segoe UI", sans-serif !important;
+  text-transform: none !important;
+  letter-spacing: 0.5px !important;
+  font-size: 16px !important;
+  margin-right: 10px !important;
+}
+
+/* Clase específica para el texto "Publicado por:" */
+.publicado-por-texto {
+  color: #6c757d !important;
+  font-weight: 600 !important;
+  font-family: "Segoe UI", sans-serif !important;
+  text-transform: none !important;
+  letter-spacing: 0.5px !important;
+  font-size: 16px !important;
+  margin-right: 10px !important;
 }
 
 .detalle-prenda-publicador-btn {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  background: #7c5e2c;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  padding: 4px 12px;
-  font-size: 15px;
-  cursor: pointer;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
-  transition: background 0.2s;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: transparent !important;
+  color: #b8904a !important;
+  border: 1px solid #b8904a !important;
+  border-radius: 6px !important;
+  padding: 8px 12px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  font-family: "Segoe UI", sans-serif !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  position: relative !important;
+  overflow: visible !important;
+  box-shadow: none !important;
 }
+
+.detalle-prenda-publicador-btn::before {
+  display: none !important;
+}
+
+.detalle-prenda-publicador-btn:hover::before {
+  display: none !important;
+}
+
 .detalle-prenda-publicador-btn:hover {
-  background: #b89b5e;
-  color: #48392e;
+  background: rgba(184, 144, 74, 0.1) !important;
+  color: #9A7738 !important;
+  border-color: #9A7738 !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.detalle-prenda-publicador-btn:active {
+  background: rgba(184, 144, 74, 0.2) !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Estilo minimalista para el ícono de usuario */
+.detalle-prenda-publicador-btn span[style*="font-size"] {
+  font-size: 16px !important;
+  filter: none !important;
+  transition: none !important;
+}
+
+.detalle-prenda-publicador-btn:hover span[style*="font-size"] {
+  transform: none !important;
 }
 
 .detalle-prenda-tipo {
-  background: #b89b5e;
-  color: #222;
-  border-radius: 8px;
-  padding: 4px 12px;
-  font-size: 1rem;
+  background: #fafafa;
+  color: #6c757d;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 500;
   display: inline-block;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
+  font-family: "Segoe UI", sans-serif;
 }
 
 .detalle-prenda-estado {
-  font-size: 1.1rem;
-  color: #a07e44;
-  margin-bottom: 6px;
+  font-size: 15px;
+  color: #6c757d;
+  margin-bottom: 10px;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 400;
 }
 
 .detalle-prenda-descripcion {
-  font-size: 1.1rem;
-  color: #48392e;
-  margin-bottom: 6px;
+  font-size: 15px;
+  color: #1A1A1A;
+  margin-bottom: 10px;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 400;
 }
 
 @media (max-width: 900px) {

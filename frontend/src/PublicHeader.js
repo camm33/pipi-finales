@@ -3,6 +3,13 @@ import { Link } from "react-router-dom";
 import "./PublicHeader.css";
 
 const PublicHeader = () => {
+  // Función temporal para limpiar localStorage completamente
+  const limpiarLocalStorage = () => {
+    localStorage.clear();
+    console.log("🧹 localStorage limpiado completamente");
+    window.location.reload();
+  };
+
   return (
     <header className="header-container">
       {/* Logo y nombre de la empresa */}
@@ -17,6 +24,9 @@ const PublicHeader = () => {
 
       {/* Botones de navegación */}
       <div className="icons">
+        <button className="icon-btn" onClick={limpiarLocalStorage} style={{background: 'red', color: 'white'}}>
+          🧹 LIMPIAR
+        </button>
         <Link to="/iniciar">
           <button className="icon-btn">Iniciar sesión</button>
         </Link>

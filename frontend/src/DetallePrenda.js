@@ -52,7 +52,7 @@ function DetallePrenda() {
         </div>
         <div className="detalle-prenda-datos">
           <div className="detalle-prenda-publicador">
-            <span>Publicado por:</span>
+            <span className="publicado-por-texto">Publicado por:</span>
             <button
               onClick={() => navigate(`/perfil/${prenda.id_usuario}`)} // ✅ corregido
               className="detalle-prenda-publicador-btn"

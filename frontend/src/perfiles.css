@@ -12,6 +12,283 @@ body {
   overflow-x: hidden;
 }
 
+/* ==========================================
+   DISEÑO MINIMALISTA PARA PÁGINA DE PERFIL
+   ========================================== */
+
+.app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #faf9f7 0%, #ffffff 100%);
+  padding: 20px;
+}
+
+.app-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 40px;
+  min-height: 80vh;
+}
+
+/* ==========================================
+   PERFIL USUARIO - COLUMNA IZQUIERDA
+   ========================================== */
+
+.perfil {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(108, 117, 125, 0.1);
+  border: 1px solid rgba(184, 144, 74, 0.2);
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+.Marco {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.foto-usuario {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #b8904a;
+  box-shadow: 0 4px 15px rgba(184, 144, 74, 0.3);
+  transition: all 0.3s ease;
+}
+
+.foto-usuario:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(184, 144, 74, 0.4);
+}
+
+.perfil h2 {
+  text-align: center;
+  color: #1A1A1A;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-family: "League Gothic", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.perfil p {
+  color: #6c757d;
+  font-size: 14px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.perfil strong {
+  color: #1A1A1A;
+  font-weight: 600;
+}
+
+.datos {
+  background: rgba(184, 144, 74, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px 0;
+  border-left: 4px solid #b8904a;
+}
+
+.datos p {
+  text-align: left;
+  margin-bottom: 0;
+  color: #1A1A1A;
+}
+
+/* ==========================================
+   ESTRELLAS DE VALORACIÓN
+   ========================================== */
+
+.stars-text {
+  display: inline-flex;
+  gap: 5px;
+  margin-left: 10px;
+}
+
+.star {
+  font-size: 18px;
+  color: #b8904a;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.star:hover {
+  transform: scale(1.2);
+  color: #9A7738;
+}
+
+.star.active {
+  color: #9A7738;
+}
+
+/* ==========================================
+   BOTÓN DE CHAT
+   ========================================== */
+
+.chat-button {
+  width: 100%;
+  background: linear-gradient(135deg, #1A1A1A 0%, #2d2d2d 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 15px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  font-family: "League Gothic", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.chat-button:hover {
+  background: linear-gradient(135deg, #2d2d2d 0%, #404040 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(26, 26, 26, 0.3);
+}
+
+/* ==========================================
+   PUBLICACIONES - COLUMNA DERECHA
+   ========================================== */
+
+.publicaciones {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(108, 117, 125, 0.1);
+  border: 1px solid rgba(184, 144, 74, 0.2);
+}
+
+.publicaciones h3 {
+  color: #1A1A1A;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  font-family: "League Gothic", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  border-bottom: 3px solid #b8904a;
+  padding-bottom: 15px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 3px 15px rgba(108, 117, 125, 0.1);
+  border: 1px solid rgba(184, 144, 74, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(184, 144, 74, 0.2);
+  border-color: #b8904a;
+}
+
+.card h4 {
+  color: #1A1A1A;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-family: "League Gothic", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.foto-prenda {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.card:hover .foto-prenda {
+  transform: scale(1.05);
+}
+
+/* ==========================================
+   BOTONES DE NAVEGACIÓN
+   ========================================== */
+
+.botones-navegacion {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  gap: 15px;
+  z-index: 1000;
+}
+
+.volver-btn {
+  background: linear-gradient(135deg, #b8904a 0%, #9A7738 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(184, 144, 74, 0.3);
+  font-family: "League Gothic", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.volver-btn:hover {
+  background: linear-gradient(135deg, #9A7738 0%, #8b6d2f 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(184, 144, 74, 0.4);
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 768px) {
+  .app-main {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .perfil {
+    position: static;
+  }
+  
+  .cards {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  
+  .botones-navegacion {
+    bottom: 20px;
+    right: 20px;
+    flex-direction: column;
+  }
+}
+
 /* Main Profile Container - Full Page */
 .profile-container {
   min-height: 100vh;
